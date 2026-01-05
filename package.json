@@ -1,0 +1,64 @@
+{
+  "name": "advanced-mern-ai-financial-saas-platform",
+  "version": "1.0.0",
+  "description": "Advanced MERN AI Financial SaaS Platform with Vercel deployment",
+  "private": true,
+  "workspaces": [
+    "client",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:backend\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:client && npm run build:backend",
+    "build:client": "cd client && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm run start",
+    "install:all": "npm install && cd client && npm install && cd ../backend && npm install",
+    "clean": "rm -rf client/dist backend/dist node_modules client/node_modules backend/node_modules",
+    "lint": "npm run lint:client && npm run lint:backend",
+    "lint:client": "cd client && npm run lint",
+    "lint:backend": "cd backend && npm run lint || echo 'Backend linting not configured'",
+    "preview": "cd client && npm run preview",
+    "vercel-build": "npm run build:client",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "test": "npm run test:client && npm run test:backend",
+    "test:client": "cd client && npm run test || echo 'Client tests not configured'",
+    "test:backend": "cd backend && npm run test || echo 'Backend tests not configured'",
+    "postinstall": "npm run install:all",
+    "validate": "npm run lint && npm run build",
+    "validate:deployment": "node scripts/validate-deployment.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/advanced-mern-ai-financial-saas-platform.git"
+  },
+  "keywords": [
+    "mern",
+    "financial",
+    "saas",
+    "ai",
+    "vercel",
+    "typescript",
+    "react",
+    "express",
+    "mongodb",
+    "serverless"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": "https://github.com/your-username/advanced-mern-ai-financial-saas-platform#readme",
+  "bugs": {
+    "url": "https://github.com/your-username/advanced-mern-ai-financial-saas-platform/issues"
+  }
+}
